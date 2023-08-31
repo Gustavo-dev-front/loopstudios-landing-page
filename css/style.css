@@ -1,0 +1,88 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.9375rem;
+  font-family: "Alata", sans-serif;
+}
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --dark-gray: hsl(0, 0%, 55%);
+  --very-dark-gray: hsl(0, 0%, 41%);
+}
+
+body {
+  min-height: 100vh;
+}
+
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+}
+
+#primary-section {
+  background: #8e2c8b url(../images/desktop/image-hero.jpg) no-repeat center / cover;
+}
+
+#primary-section .mask {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 50px;
+  padding-bottom: 110px;
+  color: var(--white);
+}
+
+#primary-section header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+#primary-section img {
+  width: 150px;
+}
+
+#primary-section nav {
+  display: flex;
+  gap: 20px;
+}
+
+#primary-section nav a::after {
+  content: "";
+  margin-top: 10px;
+  display: block;
+  width: 0;
+  height: 3px;
+  background-color: var(--white);
+  transition: width .3s linear;
+}
+
+#primary-section nav a:hover {
+  color: #ccc;
+}
+
+#primary-section nav a:hover::after {
+  width: 100%;
+}
+
+#primary-section .slogan {
+  border: 2px solid var(--white);
+  max-width: max-content;
+  padding: 20px;
+}
+
+#primary-section .slogan h1 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 3rem;
+  max-width: 13ch;
+}
