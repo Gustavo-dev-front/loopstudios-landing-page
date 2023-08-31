@@ -23,6 +23,9 @@ body {
   min-height: 100vh;
 }
 
+img {
+  max-width: 100%;
+}
 
 .container {
   max-width: 1440px;
@@ -44,16 +47,24 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
   margin-bottom: 60px;
+  position: relative;
 }
 
-#primary-section img {
+#primary-section header>img {
   width: 150px;
 }
 
 #primary-section nav {
+  transition: transform .3s ease;
+}
+
+#primary-section nav ul {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 #primary-section nav a::after {
@@ -74,6 +85,12 @@ body {
   width: 100%;
 }
 
+#primary-section .mobile-toggle img {
+  width: 30px;
+  display: none;
+  cursor: pointer;
+}
+
 #primary-section .slogan {
   border: 2px solid var(--white);
   max-width: max-content;
@@ -85,4 +102,28 @@ body {
   font-weight: 300;
   font-size: 3rem;
   max-width: 13ch;
+}
+
+@media only screen and (max-width: 610px) {
+
+  .js #primary-section nav {
+    transform: scale(0);
+  }
+
+  .js #primary-section .mobile-toggle img {
+    display: block;
+  }
+
+  #primary-section nav.active {
+    transform: scale(1);
+    position: absolute;
+    left: 0;
+    top: 60px;
+  }
+
+  #primary-section nav.active ul {
+    flex-direction: column;
+    background-color: var(--black);
+  }
+
 }
