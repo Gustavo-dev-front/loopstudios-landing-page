@@ -34,11 +34,11 @@ img {
 
 #primary-section {
   background: #8e2c8b url(../images/desktop/image-hero.jpg) no-repeat center / cover;
+  position: relative;
 }
 
 #primary-section .mask {
   background-color: rgba(0, 0, 0, 0.3);
-  padding: 50px;
   padding-bottom: 110px;
   color: var(--white);
 }
@@ -50,15 +50,16 @@ img {
   gap: 20px;
   flex-wrap: wrap;
   margin-bottom: 60px;
-  position: relative;
+  padding: 50px 50px 20px;
 }
 
-#primary-section header>img {
+#primary-section .logo {
   width: 150px;
 }
 
 #primary-section nav {
   transition: transform .3s ease;
+  transform-origin: right;
 }
 
 #primary-section nav ul {
@@ -85,45 +86,84 @@ img {
   width: 100%;
 }
 
-#primary-section .mobile-toggle img {
+#primary-section .mobile-toggle {
   width: 30px;
   display: none;
   cursor: pointer;
 }
 
 #primary-section .slogan {
-  border: 2px solid var(--white);
   max-width: max-content;
-  padding: 20px;
+  padding: 0 50px;
 }
 
 #primary-section .slogan h1 {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 300;
   font-size: 3rem;
-  max-width: 13ch;
+  max-width: 14ch;
+  border: 2px solid var(--white);
+  padding: 20px;
 }
+
 
 @media only screen and (max-width: 610px) {
 
-  .js #primary-section nav {
-    transform: scale(0);
-  }
-
-  .js #primary-section .mobile-toggle img {
+  .js #primary-section .mobile-toggle {
     display: block;
   }
 
-  #primary-section nav.active {
-    transform: scale(1);
-    position: absolute;
-    left: 0;
-    top: 60px;
+  .js #primary-section nav {
+    height: 0;
+    transform: scale(0);
   }
 
-  #primary-section nav.active ul {
+  .js #primary-section nav ul {
     flex-direction: column;
-    background-color: var(--black);
+  }
+
+  .js #primary-section nav ul a {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .js #primary-section header {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    padding: 50px 50px 20px;
+  }
+
+  .js #primary-section.nav-active header {
+    position: absolute;
+    width: 100%;
+    background-color: black;
+  }
+
+  .js #primary-section.nav-active nav {
+    height: 100%;
+    transform: scale(1);
+    margin: 60px 0;
+  }
+
+}
+
+@media only screen and (max-width: 500px) {
+  #primary-section .slogan h1 {
+    font-size: 2rem;
+  }
+}
+
+
+@media only screen and (max-width: 400px) {
+
+  #primary-section .slogan,
+  #primary-section header {
+    padding: 20px !important;
   }
 
 }
